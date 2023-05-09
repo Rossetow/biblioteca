@@ -16,14 +16,16 @@ public class Book {
     private String cathegory;
     private int id;
 
-    public Book(String author, String title, int pages) {
-        this.author = author;
+    public Book(String author, String title, String cathegory) {
         this.title = title;
-        this.pages = pages;
+        this.author = author;
         this.cathegory = cathegory;
-        this.id = id;
     }
 
+    public void setId(int setId) {
+        this.id = setId;
+    }
+    
     public int getId() {
         return this.id;
     }

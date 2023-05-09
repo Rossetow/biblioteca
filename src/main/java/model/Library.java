@@ -14,16 +14,14 @@ import java.util.List;
 public class Library {
 
     public List<Book> books = new ArrayList<Book>();
+    private int idCounter = 0;
 
-    public Book[] getBooks(){
-        Book[] output = new Book[this.books.size()];
-        for (int i = 0; i < output.length; i++) {
-            output[i]=this.books.get(i);
-        }
-        return output;
+    public List<Book> getBooks(){
+        return this.books;
     }
 
     public void addBook(Book add){
+        add.setId(++this.idCounter);
         this.books.add(add);
     }
     

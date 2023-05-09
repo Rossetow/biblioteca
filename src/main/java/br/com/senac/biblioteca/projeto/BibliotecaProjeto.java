@@ -5,6 +5,7 @@
 package br.com.senac.biblioteca.projeto;
 import com.senac.biblioteca.swing.HomeFrame;
 import com.formdev.flatlaf.intellijthemes.FlatLightFlatIJTheme;
+import swing.Home;
 
 /**
  *
@@ -14,7 +15,7 @@ public class BibliotecaProjeto {
 
     public static void main(String[] args) {
         FlatLightFlatIJTheme.setup();
-        HomeFrame home = new HomeFrame();
+        Home home = new Home();
         home.setVisible(true);
     }
 }

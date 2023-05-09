@@ -10,6 +10,8 @@ package swing;
  */
 public class Home extends javax.swing.JFrame {
 
+    JDCatalog catalog = new JDCatalog(this);
+    
     /**
      * Creates new form Home
      */
@@ -65,7 +67,7 @@ public class Home extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JBCatalogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCatalogActionPerformed
-        // TODO add your handling code here:
+        catalog.setVisible(true);
     }//GEN-LAST:event_JBCatalogActionPerformed
 
     /**
