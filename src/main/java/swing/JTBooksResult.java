@@ -4,6 +4,7 @@
  */
 package swing;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 import model.Book;
@@ -16,12 +17,6 @@ public class JTBooksResult extends AbstractTableModel{
 
     private List<Book> itens;
 
-    JTBooksResult(List<Book> books) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    public void JTBookResult (List<Book> input){
-        this.itens=input;
-    }
     private String[] columns = new String[] {
         "ID",
         "Title",
@@ -43,6 +38,10 @@ public class JTBooksResult extends AbstractTableModel{
         false, 
         false
     };
+    
+    public JTBooksResult(List<Book> input) {
+        this.itens=input;
+    }
 
     @Override
     public int getRowCount() {
@@ -62,13 +61,30 @@ public class JTBooksResult extends AbstractTableModel{
             case 1: return item.getTitle();
             case 2: return item.getAuthors();
             case 3: return item.getCathegory();
-            case 4: return item.isBorrowed();
+            case 4: return item.isAvailable();
         }
       return null;
     }
     
+    @Override
+    public Class getColumnClass(int columnIndex) {
+        return types[columnIndex];
+    }
+
+    @Override
+    public String getColumnName(int column) {
+        return columns[column];
+    }
+    
+    @Override
+    public boolean isCellEditable(int rowIndex, int columnIndex) {
+        return canEdit[columnIndex];
+    }
+    
     public void add (Book item){
         this.itens.add(item);
+        int row = itens.indexOf(item);
+        fireTableRowsInserted(row, row);
     }
     
     public void remove (Book item){

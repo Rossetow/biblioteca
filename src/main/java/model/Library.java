@@ -33,10 +33,21 @@ public class Library {
         return this.books.get(id);
     }
     
+    public void editBook(Book edit){
+        if(edit.getId()>0){
+            int index = this.books.indexOf(edit);
+            
+            if(index>=0)
+                this.books.set(index, edit);
+        } else {
+            addBook(edit);
+        }
+    }
+    
     public List<Book> findBook (String title, String author, String cathegory){
         List<Book> output = new ArrayList<>();
         for (Book book : this.books) {
-            if(book.isBorrowed()){
+            if(book.isAvailable()){
                 if(!title.isEmpty() && book.getTitle().toUpperCase().contains(title.toUpperCase()))
                     output.add(book);
                 else if(!author.isEmpty() && book.getAuthors().toUpperCase().contains(author.toUpperCase()))

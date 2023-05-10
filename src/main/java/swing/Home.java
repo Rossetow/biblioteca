@@ -4,13 +4,16 @@
  */
 package swing;
 
+import br.com.senac.biblioteca.projeto.data;
+
 /**
  *
  * @author Aluno TDS
  */
 public class Home extends javax.swing.JFrame {
 
-    JDCatalog catalog = new JDCatalog(this);
+    JDCatalog catalog;
+    private final data data = new data();
     
     /**
      * Creates new form Home
@@ -66,8 +69,16 @@ public class Home extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public data getData(){
+        return this.data;
+    }
+    
     private void JBCatalogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCatalogActionPerformed
-        catalog.setVisible(true);
+        if(this.catalog!= null){
+        this.catalog.setVisible(false);
+        }        
+        this.catalog = new JDCatalog(this);
+        this.catalog.setVisible(true);
     }//GEN-LAST:event_JBCatalogActionPerformed
 
     /**

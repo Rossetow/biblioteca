@@ -9,14 +9,13 @@ package model;
  * @author Aluno TDS
  */
 public class Book {
-    private String author;
-    private String title;
-    private int pages;
-    private boolean borrowed = false;
-    private String cathegory;
     private int id;
+    private String title;
+    private String author;
+    private String cathegory;
+    public boolean available = true;
 
-    public Book(String author, String title, String cathegory) {
+    public Book(String title, String author, String cathegory) {
         this.title = title;
         this.author = author;
         this.cathegory = cathegory;
@@ -38,25 +37,16 @@ public class Book {
         return this.title;
     }
 
-    public int getPages() {
-        return this.pages;
-    }
-
-    public boolean isBorrowed() {
-        return this.borrowed;
+    public boolean isAvailable() {
+        return this.available;
     }
     
     public String getCathegory (){
         return this.cathegory;
     }
 
-    public void Return(){
-        this.borrowed=false;
+    public void setAvaiable(boolean set){
+        this.available=set ;
     }
-
-    public void borrow(){
-        this.borrowed=true;
-    }
-
 }
 

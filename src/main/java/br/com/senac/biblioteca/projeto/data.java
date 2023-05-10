@@ -12,9 +12,13 @@ import model.Library;
  * @author Aluno TDS
  */
 public class data {
-    private Library library;
+    private Library library = new Library();
+
+    public data() {
+        initData();
+    }
     
-    public void data (){
+    public void initData (){
         this.library = new Library();
         this.library.addBook(new Book("Biblia","Rafael Rosseto","Religião"));
         this.library.addBook(new Book("Turma da Mônica","Maurício de Souza","Infantil"));
