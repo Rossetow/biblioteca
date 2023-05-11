@@ -14,6 +14,8 @@ import java.util.List;
 public class Library {
 
     public List<Book> books = new ArrayList<Book>();
+    public List<Lending> lendings = new ArrayList<Lending>();
+    private int lendCounter = 0;
     private int idCounter = 0;
 
     public List<Book> getBooks(){
@@ -26,22 +28,43 @@ public class Library {
     }
     
     public void removeBook (Book remove){
-        this.books.remove(remove);
+        //não sei pq os metodos da list não tao funcionando direito
+        
+        Book delete = null;
+        for (Book book : this.books) {
+            if(remove.getId()==book.getId())
+                delete=book;
+                break;
+        }
+       
+        this.books.remove(delete);
     }
     
     public Book getBookByID (int id){
-        return this.books.get(id);
+        return this.books.get(id-1);
     }
     
     public void editBook(Book edit){
         if(edit.getId()>0){
-            int index = this.books.indexOf(edit);
+            int index = findIndex(edit);
             
             if(index>=0)
                 this.books.set(index, edit);
         } else {
             addBook(edit);
         }
+    }
+    
+    public int findIndex(Book o){
+        //.indexOf não tava funcionando por algum motivo
+        
+        for (int i = 0; i < this.books.size(); i++) {
+            Book object = this.books.get(i);
+            if(object.getId()==o.getId())
+                return i;
+        }
+        
+        return -1;
     }
     
     public List<Book> findBook (String title, String author, String cathegory){
@@ -58,4 +81,9 @@ public class Library {
         }
         return output;
     }
+
+  public void addLending(Lending add){
+      this.lendings.add(add);
+}
+  
 }

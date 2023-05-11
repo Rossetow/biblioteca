@@ -9,7 +9,6 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import model.Book;
 
-
 /**
  *
  * @author Aluno TDS
@@ -45,7 +44,7 @@ public class JDCatalog extends javax.swing.JDialog {
         this.JTFTitle.setText("");
         this.JTFAuthor.setText("");
         this.JTFId.setText("");
-        this.JCBCathegory.setSelectedItem("");
+        this.JCBCathegory.setSelectedItem("Infantil");
         this.JCBAvaiable.setSelected(false);
         this.JTResults.setModel(initTable());
         //this.jTableCatalogo.clearSelection();
@@ -64,7 +63,6 @@ public class JDCatalog extends javax.swing.JDialog {
 
         return output;
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -228,11 +226,13 @@ public class JDCatalog extends javax.swing.JDialog {
     private void JBSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBSaveActionPerformed
         this.data.getLibrary().editBook(createBook());
         clear();
-        
     }//GEN-LAST:event_JBSaveActionPerformed
 
     private void JBDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBDeleteActionPerformed
-        // TODO add your handling code here:
+        if(this.JTFId.getText().isEmpty())
+            return;
+        this.data.getLibrary().removeBook(createBook());
+        clear();
     }//GEN-LAST:event_JBDeleteActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

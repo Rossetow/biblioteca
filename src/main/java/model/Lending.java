@@ -10,4 +10,16 @@ package model;
  */
 public class Lending {
     
+    private String client;
+    private Book book;
+    private int id;
+    private String date;
+
+    public Lending(String client, Book book, int id, String date) {
+        this.client = client;
+        this.book = book;
+        this.date = date;
+        this.id = id;
+    }
+ 
 }
