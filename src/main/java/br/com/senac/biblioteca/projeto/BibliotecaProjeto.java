@@ -3,9 +3,8 @@
  */
 
 package br.com.senac.biblioteca.projeto;
-import com.senac.biblioteca.swing.HomeFrame;
 import com.formdev.flatlaf.intellijthemes.FlatLightFlatIJTheme;
-import swing.Home;
+import swing.JFHome;
 
 /**
  *
@@ -14,8 +13,8 @@ import swing.Home;
 public class BibliotecaProjeto {
 
     public static void main(String[] args) {
-        FlatLightFlatIJTheme.setup();
-        Home home = new Home();
+        //FlatLightFlatIJTheme.setup();
+        JFHome home = new JFHome();
         home.setVisible(true);
     }
 }

@@ -59,7 +59,7 @@ public class JTBooksResult extends AbstractTableModel{
         switch(columnIndex){
             case 0: return item.getId();
             case 1: return item.getTitle();
-            case 2: return item.getAuthors();
+            case 2: return item.getAuthor();
             case 3: return item.getCathegory();
             case 4: return item.isAvailable();
         }

@@ -10,15 +10,15 @@ import br.com.senac.biblioteca.projeto.data;
  *
  * @author Aluno TDS
  */
-public class Home extends javax.swing.JFrame {
+public class JFHome extends javax.swing.JFrame {
 
-    JDCatalog catalog;
+    JFCatalog catalog;
     private final data data = new data();
     
     /**
      * Creates new form Home
      */
-    public Home() {
+    public JFHome() {
         initComponents();
     }
 
@@ -77,7 +77,7 @@ public class Home extends javax.swing.JFrame {
         if(this.catalog!= null){
         this.catalog.setVisible(false);
         }        
-        this.catalog = new JDCatalog(this);
+        this.catalog = new JFCatalog(this);
         this.catalog.setVisible(true);
     }//GEN-LAST:event_JBCatalogActionPerformed
 
@@ -98,20 +98,20 @@ public class Home extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFHome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFHome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFHome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFHome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Home().setVisible(true);
+                new JFHome().setVisible(true);
             }
         });
     }
