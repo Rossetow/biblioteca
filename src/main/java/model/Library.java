@@ -82,8 +82,8 @@ public class Library {
         return output;
     }
 
-  public void addLending(Lending add){
-      this.lendings.add(add);
+  public void addLending(Book add){
+      this.lendings.add();
 }
   
 }

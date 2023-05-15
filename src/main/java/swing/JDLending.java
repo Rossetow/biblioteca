@@ -4,17 +4,23 @@
  */
 package swing;
 
+import br.com.senac.biblioteca.projeto.data;
+import model.Book;
+import model.Lending;
+
 /**
  *
  * @author Aluno TDS
  */
 public class JDLending extends javax.swing.JDialog {
 
+    public data data;
     /**
      * Creates new form JDLending
      */
-    public JDLending(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public JDLending(Home parent) {
+        super();
+        this.data=parent.getData();
         initComponents();
     }
 
@@ -27,21 +33,164 @@ public class JDLending extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        JCBReturned = new javax.swing.JCheckBox();
+        JTFId = new javax.swing.JTextField();
+        JLId = new javax.swing.JLabel();
+        JBSave = new javax.swing.JButton();
+        JBDelete = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        JCBCathegory = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
+        JTFAuthor = new javax.swing.JTextField();
+        JTFTitle = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        JTResults = new javax.swing.JTable();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        JCBReturned.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        JCBReturned.setText("Returned");
+        JCBReturned.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JCBReturnedActionPerformed(evt);
+            }
+        });
+
+        JTFId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTFIdActionPerformed(evt);
+            }
+        });
+
+        JLId.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        JLId.setText("ID");
+
+        JBSave.setText("Save");
+        JBSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBSaveActionPerformed(evt);
+            }
+        });
+
+        JBDelete.setText("Delete");
+        JBDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBDeleteActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel1.setText("Title");
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel2.setText("Author");
+
+        JCBCathegory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Infantil", "Religião", "Fantasia", "Ficção", "Auto-ajuda", "Informática" }));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel3.setText("Cathegory");
+
+        JTResults.setModel(initTable());
+        JTResults.setColumnSelectionAllowed(true);
+        JTResults.getTableHeader().setReorderingAllowed(false);
+        jScrollPane2.setViewportView(JTResults);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 405, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(1, 1, 1)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(JCBReturned, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(JBSave)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(JBDelete))
+                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel3)
+                                .addComponent(jLabel1)
+                                .addComponent(JLId))
+                            .addGap(15, 15, 15)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(JTFTitle)
+                                .addComponent(JTFAuthor)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(JTFId, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(JCBCathegory, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(83, 83, 83)))))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 498, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1)
+                        .addComponent(JTFTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel2)
+                        .addComponent(JTFAuthor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(JLId)
+                        .addComponent(JTFId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel3)
+                        .addComponent(JCBCathegory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(4, 4, 4)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(JBSave)
+                        .addComponent(JBDelete)
+                        .addComponent(JCBReturned, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(18, 18, 18)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap()))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    public Lending createLending(){
+        Lending output = new Lending(this.JTFTitle.getText(), this.JTFAuthor.getText(), this.JCBCathegory.getSelectedItem().toString());
+        output.setAvaiable(this.JCBReturned.isSelected());
+        output.available = this.JCBReturned.isSelected();
+        if(!this.JTFId.getText().isEmpty())
+            output.setId(Integer.parseInt(this.JTFId.getText()));
+
+        return output;
+    }
+    
+    
+    
+    
+    private void JCBReturnedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCBReturnedActionPerformed
+       
+    }//GEN-LAST:event_JCBReturnedActionPerformed
+
+    private void JTFIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTFIdActionPerformed
+
+    private void JBSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBSaveActionPerformed
+         this.data.getLibrary().addLending(createBook());
+    }//GEN-LAST:event_JBSaveActionPerformed
+
+    private void JBDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBDeleteActionPerformed
+        
+    }//GEN-LAST:event_JBDeleteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -86,5 +235,18 @@ public class JDLending extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JBDelete;
+    private javax.swing.JButton JBSave;
+    private javax.swing.JComboBox<String> JCBCathegory;
+    private javax.swing.JCheckBox JCBReturned;
+    private javax.swing.JLabel JLId;
+    private javax.swing.JTextField JTFAuthor;
+    private javax.swing.JTextField JTFId;
+    private javax.swing.JTextField JTFTitle;
+    private javax.swing.JTable JTResults;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }

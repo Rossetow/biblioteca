@@ -11,7 +11,9 @@ package model;
 public class Lending {
     
     private String client;
-    private Book book;
+    private String title;
+    private String author;
+    private String catalog;
     private int id;
     private String date;
 
@@ -21,5 +23,7 @@ public class Lending {
         this.date = date;
         this.id = id;
     }
+    
+    
  
 }
