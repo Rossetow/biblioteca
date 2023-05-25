@@ -32,9 +32,10 @@ public class Library {
         
         Book delete = null;
         for (Book book : this.books) {
-            if(remove.getId()==book.getId())
+            if(remove.getId()==book.getId()){
                 delete=book;
                 break;
+            }
         }
        
         this.books.remove(delete);
@@ -73,7 +74,7 @@ public class Library {
             if(book.isAvailable()){
                 if(!title.isEmpty() && book.getTitle().toUpperCase().contains(title.toUpperCase()))
                     output.add(book);
-                else if(!author.isEmpty() && book.getAuthors().toUpperCase().contains(author.toUpperCase()))
+                else if(!author.isEmpty() && book.getAuthor().toUpperCase().contains(author.toUpperCase()))
                     output.add(book);
                 else if(!cathegory.isEmpty() && book.getCathegory().toUpperCase().contains(cathegory.toUpperCase()))
                     output.add(book);
@@ -82,8 +83,38 @@ public class Library {
         return output;
     }
 
-  public void addLending(Book add){
-      this.lendings.add();
+  public void addLending(Lending add){
+      add.setId(++lendCounter);
+      this.lendings.add(add);
 }
+  
+  public void removeLending(Lending remove){
+      //não sei pq os metodos da list não tao funcionando direito
+        
+        Lending delete = null;
+        for (Lending lend : this.lendings) {
+            if(remove.getId()==lend.getId())
+                delete=lend;
+                break;
+        }
+       
+        this.lendings.remove(delete);
+  }
+  
+  public List<Lending> getLendings(){
+      return this.lendings;
+  }
+
+    public void editLending(Lending edit) {
+        if(edit.getId()>0){
+            int index = edit.getId();
+            
+            if(index>=0)
+                this.lendings.set(index-1, edit);
+        } else {
+            addLending(edit);
+        }
+  }
+  
   
 }

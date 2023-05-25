@@ -10,15 +10,16 @@ import br.com.senac.biblioteca.projeto.data;
  *
  * @author Aluno TDS
  */
-public class Home extends javax.swing.JFrame {
+public class JFHome extends javax.swing.JFrame {
 
-    JDCatalog catalog;
+    JFCatalog catalog;
+    JFLending lending;
     private final data data = new data();
     
     /**
      * Creates new form Home
      */
-    public Home() {
+    public JFHome() {
         initComponents();
     }
 
@@ -36,7 +37,7 @@ public class Home extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        JBCatalog.setText("Cathalog");
+        JBCatalog.setText("Catalog");
         JBCatalog.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBCatalogActionPerformed(evt);
@@ -44,6 +45,11 @@ public class Home extends javax.swing.JFrame {
         });
 
         JBBorrow.setText("Borrow");
+        JBBorrow.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBBorrowActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -77,45 +83,19 @@ public class Home extends javax.swing.JFrame {
         if(this.catalog!= null){
         this.catalog.setVisible(false);
         }        
-        this.catalog = new JDCatalog(this);
+        this.catalog = new JFCatalog(this);
         this.catalog.setVisible(true);
     }//GEN-LAST:event_JBCatalogActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void JBBorrowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBBorrowActionPerformed
+        if(this.lending!= null){
+        this.lending.setVisible(false);
+        }        
+        this.lending = new JFLending(this);
+        this.lending.setVisible(true);
+    }//GEN-LAST:event_JBBorrowActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Home().setVisible(true);
-            }
-        });
-    }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBBorrow;
     private javax.swing.JButton JBCatalog;

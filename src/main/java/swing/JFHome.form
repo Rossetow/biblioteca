@@ -48,7 +48,7 @@
   <SubComponents>
     <Component class="javax.swing.JButton" name="JBCatalog">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Cathalog"/>
+        <Property name="text" type="java.lang.String" value="Catalog"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBCatalogActionPerformed"/>
@@ -58,6 +58,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Borrow"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBBorrowActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

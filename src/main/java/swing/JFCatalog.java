@@ -13,14 +13,14 @@ import model.Book;
  *
  * @author Aluno TDS
  */
-public class JDCatalog extends javax.swing.JDialog {
+public class JFCatalog extends javax.swing.JFrame {
 
     public data data;
     /**
      * Creates new form JDCatalog
      */
-    public JDCatalog(Home parent) {
-        super(parent);
+    public JFCatalog(JFHome parent) {
+        super();
         this.data=parent.getData();
         initComponents();
         this.JTResults.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
@@ -31,7 +31,7 @@ public class JDCatalog extends javax.swing.JDialog {
                     Book book = data.getLibrary().getBooks().get(index);
                     JTFId.setText(String.valueOf(book.getId()));
                     JTFTitle.setText(book.getTitle());
-                    JTFAuthor.setText(book.getAuthors());
+                    JTFAuthor.setText(book.getAuthor());
                     JCBCathegory.setSelectedItem(book.getCathegory());
                     JCBAvaiable.setSelected(book.isAvailable());
                 }
@@ -173,12 +173,13 @@ public class JDCatalog extends javax.swing.JDialog {
                             .addComponent(JLId))
                         .addGap(15, 15, 15)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(JTFId, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(JCBCathegory, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(83, 83, 83))
                             .addComponent(JTFTitle)
-                            .addComponent(JTFAuthor))))
+                            .addComponent(JTFAuthor)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(JTFId, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(JCBCathegory, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(83, 83, 83)))))
                 .addContainerGap(76, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
